@@ -1,0 +1,118 @@
+<!DOCTYPE html><html lang="zh-CN" data-astro-cid-lcdefpme><head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" href="/favicon.ico"><link rel="sitemap" href="/sitemap-index.xml"><meta name="generator" content="Astro v7.2.2"><!-- Y2K 自定义光标（复刻 my-app 主页效果） --><link rel="stylesheet" href="https://cdn.cursors-4u.net/cursors/animated/cute-ears-doll-girl-9aaba74d-32.css"><!-- Canonical URL --><link rel="canonical" href="https://islandbabe00.github.io/"><!-- Primary Meta Tags --><title>✦ C3BER_SPICE.LOG ✦ 个人博客</title><meta name="description" content="Y2K 海岛风个人主页 — 日记、画廊、留言板"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://islandbabe00.github.io/"><meta property="og:title" content="✦ C3BER_SPICE.LOG ✦ 个人博客"><meta property="og:description" content="Y2K 海岛风个人主页 — 日记、画廊、留言板"><meta property="og:image" content="https://islandbabe00.github.io/_astro/miku.D0Kkzz-A.jpg"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/_astro/consts.DYc6qvKh.css"><style>a[data-astro-cid-evkijfd6]{text-decoration:none;display:inline-block}a[data-astro-cid-evkijfd6].active{font-weight:bolder;text-decoration:underline}.div-image[data-astro-cid-qjf3u7di]{width:100%;height:200px;margin-bottom:1em;position:relative}.left-image[data-astro-cid-qjf3u7di]{border-width:7px;width:65%;height:auto;position:absolute;top:0;left:0}.tright-image[data-astro-cid-qjf3u7di]{border-width:7px;width:35%;height:auto;position:absolute;right:17%;transform:rotate(5deg)}.bright-image[data-astro-cid-qjf3u7di]{border-width:7px;width:35%;height:auto;position:absolute;bottom:10px;right:17%;transform:rotate(-2deg)}.right-image[data-astro-cid-qjf3u7di]{height:auto;position:absolute;top:10px;right:-20px}.tree-decor[data-astro-cid-lcdefpme]{pointer-events:none;z-index:-1;image-rendering:pixelated;position:fixed}.palmtree-decor[data-astro-cid-lcdefpme]{position:absolute;top:50px;left:0;rotate:10deg;scale:2}.stitch-decor[data-astro-cid-lcdefpme]{position:absolute;bottom:250px;left:70%;scale:2}
+</style></head><body data-astro-cid-lcdefpme><img key="1" src="/_astro/tree.DLw942qf.png" width="80" height="90" alt="" class="tree-decor" style="position:absolute;left:5%;top:35%;transform:scaleX(1);opacity:0.3" data-astro-cid-lcdefpme><img key="2" src="/_astro/tree.DLw942qf.png" width="100" height="110" alt="" class="tree-decor" style="position:absolute;left:10%;top:60%;transform:scaleX(-1);opacity:0.3" data-astro-cid-lcdefpme><img key="3" src="/_astro/tree.DLw942qf.png" width="120" height="130" alt="" class="tree-decor" style="position:absolute;left:3%;top:90%;transform:scaleX(1);opacity:0.3" data-astro-cid-lcdefpme><img key="4" src="/_astro/tree.DLw942qf.png" width="90" height="100" alt="" class="tree-decor" style="position:absolute;left:80%;top:10%;transform:scaleX(-1);opacity:0.3" data-astro-cid-lcdefpme><img key="5" src="/_astro/tree.DLw942qf.png" width="120" height="130" alt="" class="tree-decor" style="position:absolute;left:90%;top:75%;transform:scaleX(1);opacity:0.3" data-astro-cid-lcdefpme><img src="/_astro/palmtree2.B79qqUXS.gif" width="397" height="540" alt="palmtree2" class="palmtree-decor" data-astro-cid-lcdefpme><img src="/_astro/stitch.CQpPGxiY.gif" width="100" height="100" alt="stitch" class="stitch-decor" data-astro-cid-lcdefpme><div class="bubbles" aria-hidden="true"></div><script>(function(){const PALETTE = [["#00D2FF","#3AFAFA","#FFFFFF"],["#FFE600","#FFB300","#FFF7CC"],["#FF5E97","#FF2E7E","#FFD1E0"],["#7CFF00","#39D700","#E6FFCC"],["#B388FF","#7C4DFF","#EDE7FF"],["#FF9A00","#FF6F00","#FFE0B2"]];
+
+	// 复刻 my-app BubbleRising 客户端逻辑：随机生成上浮泡泡。
+	const MAX_BUBBLES = 20;
+	let nextId = 0;
+
+	function createBubble() {
+		return {
+			id: nextId++,
+			left: `${5 + Math.random() * 90}%`,
+			size: 28 + Math.random() * 34, // 28 ~ 62 px
+			duration: 9000 + Math.random() * 7000, // 9 ~ 16 s
+			drift: (Math.random() * 2 - 1) * 40, // -40 ~ 40 px 横向漂移
+			colors: PALETTE[Math.floor(Math.random() * PALETTE.length)],
+		};
+	}
+
+	const container = document.querySelector(".bubbles");
+
+	function spawn() {
+		if (!container) return;
+		if (container.children.length >= MAX_BUBBLES) return;
+		const b = createBubble();
+		const el = document.createElement("span");
+		el.className = "bubble";
+		el.style.left = b.left;
+		el.style.width = `${b.size}px`;
+		el.style.height = `${b.size}px`;
+		el.style.animationDuration = `${b.duration}ms`;
+		el.style.setProperty("--drift", `${b.drift}px`);
+		el.style.background = `radial-gradient(circle at 30% 30%, ${b.colors[2]}, ${b.colors[0]} 55%, ${b.colors[1]} 100%)`;
+		el.addEventListener("animationend", () => el.remove());
+		container.appendChild(el);
+	}
+
+	// 启动时快速补足，避免页面初始空白
+	for (let i = 0; i < 5; i++) {
+		spawn();
+	}
+	// 泡泡平均寿命约 12 秒，600ms 生成一个可维持 20 个的稳态
+	setInterval(spawn, 600);
+})();</script><div class="container" data-astro-cid-lcdefpme><header class="header-title" data-astro-cid-nen7h5rs><h1 data-astro-cid-nen7h5rs><span class="sparkle" data-astro-cid-nen7h5rs>✦</span> C3BER_SPICE.LOG <span class="sparkle" data-astro-cid-nen7h5rs>✦</span></h1><p data-astro-cid-nen7h5rs>🌊 欢迎来到我的阳光沙滩数字岛屿！ 🌴</p><img src="/_astro/Sun_umbrella.Bj8-xNr2.png" alt="Sun_umbrella" width="100" height="110" style="position:absolute;bottom:-10;left:50" data-astro-cid-nen7h5rs><img src="/_astro/sun.BKihQByP.png" alt="sun" width="100" height="100" style="position:absolute;bottom:-10;left:150" data-astro-cid-nen7h5rs><img src="/_astro/shellblue.CqsBHg5M.gif" alt="shellblue" width="55" height="55" style="position:absolute;top:20;right:50;rotate:-150deg;scale:1.5" data-astro-cid-nen7h5rs></header><aside class="left-sidebar"><div class="window"><div class="window-header"><span>PROFILE.INFO</span><div class="window-controls"><span>_</span><span>□</span><span>X</span></div></div><div class="window-body"><div class="avatar-box" style="position:relative;display:inline-block"><img src="/_astro/miku.D0Kkzz-A_ZQOiCC.webp" alt="avatar" loading="eager" style="position:absolute;left:50%;top:50%;transform:translate(-50%, -50%)" decoding="async" width="255" height="245"><img src="/_astro/avatar_frame.DXUaQXPK.gif" alt="avatar_frame" width="150" height="150" style="position:absolute;left:50%;top:50%;transform:translate(calc(-50% + 20px), calc(-50% - 30px));pointer-events:none"></div><ul class="profile-info"><li><b>User:</b> Island_Babe_00</li><li><b>Status:</b><span style="color:#009900;font-weight:bold">● On Beach</span></li><li><b>Hobbies:</b> Surfing / Music / Y2K Art</li><li><b>Signature:</b> Cool vibes & stay salty! 🏄‍♀️</li></ul><div class="badge-list"><span class="y2k-badge">ISLAND_LIFE</span><span class="y2k-badge">SURFS_UP</span><span class="y2k-badge">MP3_INSIDE</span><span class="y2k-badge">SUN_KISSED</span></div></div></div><div class="window" style="position:relative"><div class="window-header"><span>NAVIGATE.SYS</span><div class="window-controls"><span>X</span></div></div><div class="window-body"><a href="/" class="y2k-btn active" style="width:100%;text-align:center;margin-bottom:8" data-astro-cid-evkijfd6>🏠 岛屿首页</a><a href="/diary" class="y2k-btn" style="width:100%;text-align:center;margin-bottom:8" data-astro-cid-evkijfd6>💿 日志飘流瓶</a><a href="/gallery" class="y2k-btn" style="width:100%;text-align:center;margin-bottom:8" data-astro-cid-evkijfd6>🖼️ 冲浪画廊</a><a href="/guestbook" class="y2k-btn" style="width:100%;text-align:center" data-astro-cid-evkijfd6>💬 沙滩留言板</a></div><img src="/_astro/cat.DVizggrS.gif" width="90" height="90" alt="cat" style="position:absolute;bottom:0;right:0"></div><div class="window"><div class="window-header"><span>FRIENDS.WEB</span><div class="window-controls"><span>X</span></div></div><div class="window-body"><p key="2"><a href="https://knoxstation.neocities.org/" target="_blank" rel="noopener noreferrer">☆Knoxie&#39;s World! (๑❛◡❛๑)☆</a></p><p key="14"><a href="https://palemomos.neocities.org/" target="_blank" rel="noopener noreferrer">Palemomos Website!</a></p></div></div></aside><main class="main-content"><div class="window" data-astro-cid-qjf3u7di><div class="window-header" data-astro-cid-qjf3u7di><span data-astro-cid-qjf3u7di>WELCOME.EXE</span><div class="window-controls" data-astro-cid-qjf3u7di><span data-astro-cid-qjf3u7di>_</span><span data-astro-cid-qjf3u7di>X</span></div></div><div class="window-body" data-astro-cid-qjf3u7di><div class="div-image" data-astro-cid-qjf3u7di><img src="/_astro/seaside.D2QmyOTi.gif" alt="seaside" width="498" height="277" class="left-image" style="border-style: solid; border-width: 7px; border-image: url(/_astro/cloudy-border.BHEl5ZfA.png) 8 fill round;" data-astro-cid-qjf3u7di><img src="/_astro/landscape.DGTqcwkN.gif" alt="landscape" width="430" height="240" class="tright-image" style="border-style: solid; border-width: 7px; border-image: url(/_astro/cloudy-border.BHEl5ZfA.png) 8 fill round;" data-astro-cid-qjf3u7di><img src="/_astro/ocean.ZrQhUVHH.gif" alt="ocean" width="400" height="200" class="bright-image" style="border-style: solid; border-width: 7px; border-image: url(/_astro/cloudy-border.BHEl5ZfA.png) 8 fill round;" data-astro-cid-qjf3u7di><img src="/_astro/watermelon.B1XKRKAs.png" alt="watermelon" width="150" height="150" class="right-image" data-astro-cid-qjf3u7di></div><p data-astro-cid-qjf3u7di>欢迎来到我的个人主页！</p><p data-astro-cid-qjf3u7di>这是一个属于我自己的小小互联网角落。</p><p data-astro-cid-qjf3u7di>在这里可以找到我的日记、照片、游戏、音乐以及一些奇奇怪怪的东西。</p></div></div><div class="window"><div class="window-header"><span>BLOG_POSTS.DAT</span><div class="window-controls"><span>_</span><span>X</span></div></div><div class="window-body"><article class="post-card" key="nice-weather"><div class="post-title"><span>✦  天气不错</span><span class="post-date">2026-08-15</span></div><div class="post-content">我去</div><a href="/diary/nice-weather/" class="y2k-btn">READ MORE &gt;&gt;</a></article><article class="post-card" key="welcome-to-my-secret-base"><div class="post-title"><span>✦  欢迎来到我的秘密基地！</span><span class="post-date">2026-08-13</span></div><div class="post-content">这是第一篇 Y2K 风格博客日记。</div><a href="/diary/welcome-to-my-secret-base/" class="y2k-btn">READ MORE &gt;&gt;</a></article></div></div></main><aside class="right-sidebar"><img class="status-box" src="/_astro/girl.Z5lFESv_.gif" alt="girl" width="240" height="120"><div class="window"><div class="window-header"><span>MEDIA_PLAYER.AMP</span><div class="window-controls"><span>X</span></div></div><div class="window-body"><div class="music-player"><audio preload="metadata"></audio><div class="track-info">♫ track01</div><div class="autoplay-hint" hidden><button type="button" class="y2k-btn" data-act="play">🎵 点击开始播放</button></div><div class="player-controls"><button type="button" class="y2k-btn" data-act="prev" title="上一首">⏮</button><button type="button" class="y2k-btn" data-act="toggle" title="播放">▶</button><button type="button" class="y2k-btn" data-act="next" title="下一首">⏭</button></div></div></div></div><script>(function(){const tracks = ["track01.mp3"];
+
+	const root = document.currentScript.closest(".window");
+	if (!root) throw new Error("music player root not found");
+	const audio = root.querySelector("audio");
+	const hint = root.querySelector(".autoplay-hint");
+	const toggleBtn = root.querySelector('[data-act="toggle"]');
+	const trackInfo = root.querySelector(".track-info");
+	const track = tracks[0];
+
+	if (track) {
+		audio.src = `/audio/${encodeURIComponent(track)}`;
+		// 尝试自动播放，被浏览器拦截时显示点击播放提示
+		const attempt = () => {
+			const p = audio.play();
+			if (p !== undefined) {
+				p.then(() => {
+					toggleBtn.textContent = "❚❚";
+					toggleBtn.title = "暂停";
+					hint.hidden = true;
+				}).catch(() => {
+					toggleBtn.textContent = "▶";
+					toggleBtn.title = "播放";
+					hint.hidden = false;
+				});
+			}
+		};
+
+		attempt();
+		audio.addEventListener("ended", attempt);
+	} else {
+		toggleBtn.disabled = true;
+		trackInfo.textContent = "♫ 暂无音频文件";
+	}
+
+	function setPlaying(playing) {
+		if (playing) {
+			toggleBtn.textContent = "❚❚";
+			toggleBtn.title = "暂停";
+		} else {
+			toggleBtn.textContent = "▶";
+			toggleBtn.title = "播放";
+		}
+	}
+
+	root.addEventListener("click", (e) => {
+		const btn = e.target.closest("[data-act]");
+		if (!btn || !track) return;
+		const act = btn.dataset.act;
+		if (act === "play") {
+			audio.play();
+			setPlaying(true);
+			hint.hidden = true;
+		} else if (act === "toggle") {
+			if (audio.paused) {
+				audio.play();
+				setPlaying(true);
+				hint.hidden = true;
+			} else {
+				audio.pause();
+				setPlaying(false);
+			}
+		} else if (act === "prev") {
+			// 单曲：从头播放
+			audio.currentTime = 0;
+			audio.play();
+			setPlaying(true);
+			hint.hidden = true;
+		} else if (act === "next") {
+			audio.currentTime = 0;
+			audio.play();
+			setPlaying(true);
+			hint.hidden = true;
+		}
+	});
+})();</script><div class="window"><div class="window-header"><span>GUESTBOOK.DAT</span><div class="window-controls"><span>_</span><span>X</span></div></div><div class="window-body"><div class="guestbook-item" key="3"><b>宇</b><span class="small-text"> 2026-08-16</span><p>你的设计很棒</p></div><p><a href="/guestbook/">→ 查看全部留言</a></p></div></div><div class="window"><div class="window-header"><span>VISITOR.CAL</span><div class="window-controls"><span>X</span></div></div><div class="window-body"><strong>Total Visit: 00000204</strong><img src="/_astro/ufo.CKZu4QMo.gif" width="30" height="30" alt="ufo"></div></div></aside><footer data-astro-cid-jo6i4kqk><div data-astro-cid-jo6i4kqk><img src="/_astro/anlucas3.Bpk36yM0.gif" alt="anlucas3" width="88" height="32" style="margin-right:10" data-astro-cid-jo6i4kqk><img src="/_astro/mobile.DShD0-PW.gif" alt="mobile" width="88" height="32" style="margin-right:10" data-astro-cid-jo6i4kqk><img src="/_astro/btn-silvercruiser.BO_x1jwT.gif" alt="btn-silvercruiser" width="88" height="32" style="margin-right:10" data-astro-cid-jo6i4kqk><img src="/_astro/aceattorneyvillains.NC_himtV.png" alt="aceattorneyvillains" width="88" height="32" style="margin-right:10" data-astro-cid-jo6i4kqk><img src="/_astro/caramelldansen.CS1A2Qj9.gif" alt="caramelldansen" width="88" height="32" data-astro-cid-jo6i4kqk></div><p data-astro-cid-jo6i4kqk>© 2000-2026 ISLAND_BABE_SPACE. ALL RIGHTS RESERVED.</p><p style="margin-top:5;font-size:11" data-astro-cid-jo6i4kqk>DESIGNED WITH SUNSHINE, SEA & Y2K SPIRIT.</p></footer></div></body></html>
