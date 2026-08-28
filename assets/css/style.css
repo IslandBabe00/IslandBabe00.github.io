@@ -1074,8 +1074,15 @@ footer {
 .div-image {
   position: relative;
   width: 100%;
-  height: 200;
+  height: 220px;
   margin-bottom: 1em;
+}
+
+@media (max-width: 900px) {
+  .div-image {
+    height: auto;
+    aspect-ratio: 540 / 220;
+  }
 }
 
 .left-image {
