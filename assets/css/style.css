@@ -303,6 +303,20 @@ body {
   margin-bottom: 12px;
 }
 
+/* 首页"查看全部日志"——简单链接 */
+.diary-more-link a {
+  color: var(--ocean-navy);
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-underline-offset: 3px;
+}
+
+.diary-more-link a:hover {
+  color: var(--sunset-coral);
+}
+
 /* Y2K 复古亮色交互按钮 */
 .y2k-btn {
   display: inline-block;
