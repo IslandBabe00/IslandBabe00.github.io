@@ -19,31 +19,37 @@
       </div>
     </div>
 
-    <!-- 留言列表窗口：按时间倒序，最新在最上方 -->
+    <!-- Giscus 在线留言：新留言自动归档到 GitHub Discussions -->
     <div class="window">
       <div class="window-header">
-        <span>💬 全部留言（1）</span>
+        <span>💬 沙滩留言板（在线）</span>
         <div class="window-controls"><span>_</span><span>X</span></div>
       </div>
       <div class="window-body">
-        <ul class="guestbook-list">
-          <li class="guestbook-item">
-            <div class="guestbook-item-header">
-              <span class="guestbook-rank">#1</span>
-              <b class="guestbook-name">宇</b>
-              <span class="small-text guestbook-time">2026-08-16</span>
-            </div>
-            <p class="guestbook-message-text">你的设计很棒</p>
-          </li>
-        </ul>
-        <p class="small-text" style="margin-top:12px;">
-          本站为静态快照，暂不支持在线留言提交。
-        </p>
-        <div class="guestbook-form-actions" style="margin-top:12px;">
-          <a href="index.html" class="y2k-btn">← 返回首页</a>
-        </div>
+        <div class="giscus"></div>
       </div>
     </div>
+
+    <div class="guestbook-form-actions" style="margin-top:12px;">
+      <a href="index.html" class="y2k-btn">← 返回首页</a>
+    </div>
   </div>
+
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="IslandBabe00/IslandBabe00.github.io"
+    data-repo-id="R_kgDOT76MsQ"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOT76Msc4DEWSs"
+    data-mapping="url"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    crossorigin="anonymous"
+    async>
+  </script>
 </body>
 </html>

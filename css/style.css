@@ -827,6 +827,18 @@ footer {
   color: var(--ocean-navy);
 }
 
+/* Giscus 留言区：Y2K 风格适配 */
+.giscus {
+  min-height: 280px;
+  margin-top: 2px;
+}
+
+.giscus-frame {
+  width: 100%;
+  border: 0;
+  border-radius: 0;
+}
+
 .guestbook-item-header {
   display: flex;
   align-items: center;
