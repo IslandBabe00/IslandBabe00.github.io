@@ -1,0 +1,31 @@
+---
+layout: default
+---
+<div class="diary-detail-page">
+  <div class="marquee-container">
+    <div class="marquee-text">
+      🌊 DIARY_ENTRY.DAT ✦ 翻开今天的日记 ✦ READ ME &amp; STAY SALTY 🌊
+    </div>
+  </div>
+
+  <div class="window">
+    <div class="window-header">
+      <span>DIARY_ENTRY.DAT</span>
+      <div class="window-controls"><span>_</span><span>X</span></div>
+    </div>
+    <div class="window-body">
+      <article class="diary-detail-card">
+        <div class="diary-detail-title">✦ {{ page.title }}</div>
+        <div class="diary-detail-meta">
+          <span class="post-date">{{ page.date | date: "%Y-%m-%d" }}</span>
+        </div>
+        <div class="diary-detail-content">{{ content }}</div>
+      </article>
+
+      <div class="diary-detail-actions">
+        <a href="{{ site.baseurl }}/index.html" class="y2k-btn">← 返回首页</a>
+        <a href="{{ site.baseurl }}/diary.html" class="y2k-btn">← 返回日记列表</a>
+      </div>
+    </div>
+  </div>
+</div>

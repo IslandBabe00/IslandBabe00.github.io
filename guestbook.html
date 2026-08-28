@@ -1,55 +1,43 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>沙滩留言板 ✦ ISLAND_Y2K_SPACE</title>
-  <link rel="icon" href="favicon.ico" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdn.cursors-4u.net/cursors/animated/cute-ears-doll-girl-9aaba74d-32.css"
-  />
-</head>
-<body>
-  <div class="guestbook-page">
-    <div class="marquee-container">
-      <div class="marquee-text">
-        🐚 GUESTBOOK.DAT ✦ 在这里留下你的脚印吧！ ✦ SAY HELLO &amp; STAY SALTY 🐚
-      </div>
-    </div>
-
-    <!-- Giscus 在线留言：新留言自动归档到 GitHub Discussions -->
-    <div class="window">
-      <div class="window-header">
-        <span>💬 沙滩留言板（在线）</span>
-        <div class="window-controls"><span>_</span><span>X</span></div>
-      </div>
-      <div class="window-body">
-        <div class="giscus"></div>
-      </div>
-    </div>
-
-    <div class="guestbook-form-actions" style="margin-top:12px;">
-      <a href="index.html" class="y2k-btn">← 返回首页</a>
+---
+layout: page
+title: "沙滩留言板"
+---
+<div class="guestbook-page">
+  <div class="marquee-container">
+    <div class="marquee-text">
+      🐚 GUESTBOOK.DAT ✦ 在这里留下你的脚印吧！ ✦ SAY HELLO &amp; STAY SALTY 🐚
     </div>
   </div>
 
-  <script
-    src="https://giscus.app/client.js"
-    data-repo="IslandBabe00/IslandBabe00.github.io"
-    data-repo-id="R_kgDOT76MsQ"
-    data-category="Announcements"
-    data-category-id="DIC_kwDOT76Msc4DEWSs"
-    data-mapping="url"
-    data-strict="0"
-    data-reactions-enabled="1"
-    data-emit-metadata="0"
-    data-input-position="bottom"
-    data-theme="preferred_color_scheme"
-    data-lang="zh-CN"
-    crossorigin="anonymous"
-    async>
-  </script>
-</body>
-</html>
+  <!-- Giscus 在线留言：留言自动归档到 GitHub Discussions -->
+  <div class="window">
+    <div class="window-header">
+      <span>💬 沙滩留言板（在线）</span>
+      <div class="window-controls"><span>_</span><span>X</span></div>
+    </div>
+    <div class="window-body">
+      <div class="giscus"></div>
+    </div>
+  </div>
+
+  <div class="guestbook-form-actions" style="margin-top:12px;">
+    <a href="{{ site.baseurl }}/index.html" class="y2k-btn">← 返回首页</a>
+  </div>
+</div>
+
+<script
+  src="https://giscus.app/client.js"
+  data-repo="IslandBabe00/IslandBabe00.github.io"
+  data-repo-id="R_kgDOT76MsQ"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOT76Msc4DEWSs"
+  data-mapping="url"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  crossorigin="anonymous"
+  async>
+</script>

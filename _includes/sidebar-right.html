@@ -1,0 +1,52 @@
+<!-- ===== 右侧边栏 ===== -->
+<aside class="right-sidebar">
+  <img class="status-box" src="{{ site.baseurl }}/assets/images/girl.gif" alt="girl" width="240" height="120" />
+
+  <!-- 音乐播放器 -->
+  <div class="window">
+    <div class="window-header">
+      <span>MEDIA_PLAYER.AMP</span>
+      <div class="window-controls"><span>X</span></div>
+    </div>
+    <div class="window-body">
+      <div class="music-player">
+        <audio id="bg-audio" preload="auto" src="{{ site.baseurl }}/assets/audio/track01.mp3"></audio>
+        <div id="track-info" class="track-info">♫ track01</div>
+
+        <div id="autoplay-hint" class="autoplay-hint" style="display:none;">
+          <button type="button" class="y2k-btn">🎵 点击开始播放</button>
+        </div>
+
+        <div class="player-controls">
+          <button type="button" id="prev-btn" class="y2k-btn" title="上一首">⏮</button>
+          <button type="button" id="play-pause-btn" class="y2k-btn" title="播放"><span class="btn-icon">▶</span></button>
+          <button type="button" id="next-btn" class="y2k-btn" title="下一首">⏭</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 留言入口 -->
+  <div class="window">
+    <div class="window-header">
+      <span>GUESTBOOK.SYS</span>
+      <div class="window-controls"><span>_</span><span>X</span></div>
+    </div>
+    <div class="window-body">
+      <p>✨ 来沙滩留言板留下你的脚印吧！ 🌊</p>
+      <p><a href="{{ site.baseurl }}/guestbook.html">→ 去留言板</a></p>
+    </div>
+  </div>
+
+  <!-- 访客计数（静态快照） -->
+  <div class="window">
+    <div class="window-header">
+      <span>VISITOR.CAL</span>
+      <div class="window-controls"><span>X</span></div>
+    </div>
+    <div class="window-body">
+      <strong>Total Visit: 00000204</strong>
+      <img src="{{ site.baseurl }}/assets/images/ufo.gif" width="30" height="30" alt="ufo" />
+    </div>
+  </div>
+</aside>

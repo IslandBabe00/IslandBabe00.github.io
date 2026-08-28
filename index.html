@@ -1,233 +1,46 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>✦ ISLAND_Y2K_SPACE ✦ 个人博客</title>
-  <meta name="description" content="Personal Homepage" />
-  <link rel="icon" href="favicon.ico" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdn.cursors-4u.net/cursors/animated/cute-ears-doll-girl-9aaba74d-32.css"
-  />
-</head>
-<body>
-  <div id="bubbles" class="bubbles" aria-hidden="true"></div>
-
-  <div class="container">
-    <!-- 装饰树（半透明背景树） -->
-    <img class="fixed pointer-events-none z-[-1] pixelated"
-         src="images/tree.png" alt="" width="80" height="90"
-         style="position:absolute; left:5%; top:35%; opacity:0.3; pointer-events:none;" />
-    <img class="fixed pointer-events-none z-[-1] pixelated"
-         src="images/tree.png" alt="" width="100" height="110"
-         style="position:absolute; left:10%; top:60%; opacity:0.3; transform:scaleX(-1); pointer-events:none;" />
-    <img class="fixed pointer-events-none z-[-1] pixelated"
-         src="images/tree.png" alt="" width="120" height="130"
-         style="position:absolute; left:3%; top:90%; opacity:0.3; pointer-events:none;" />
-    <img class="fixed pointer-events-none z-[-1] pixelated"
-         src="images/tree.png" alt="" width="90" height="100"
-         style="position:absolute; left:80%; top:10%; opacity:0.3; transform:scaleX(-1); pointer-events:none;" />
-    <img class="fixed pointer-events-none z-[-1] pixelated"
-         src="images/tree.png" alt="" width="120" height="130"
-         style="position:absolute; left:90%; top:75%; opacity:0.3; pointer-events:none;" />
-    <img src="images/palmtree2.gif" alt="palmtree2" width="397" height="540" loading="eager"
-         style="position:absolute; top:50px; left:0; scale:2; rotate:10deg;" />
-
-    <!-- ===== Header ===== -->
-    <header class="header-title">
-      <h1><span class="sparkle">✦</span> C3BER_SPICE.LOG <span class="sparkle">✦</span></h1>
-      <p>🌊 欢迎来到我的阳光沙滩数字岛屿！ 🌴</p>
-      <img src="images/Sun_umbrella.png" alt="Sun_umbrella" width="100" height="110"
-           style="position:absolute; bottom:-10px; left:50px;" />
-      <img src="images/sun.png" alt="sun" width="100" height="100"
-           style="position:absolute; bottom:-10px; left:150px;" />
-      <img src="images/shellblue.gif" alt="shellblue" width="55" height="55"
-           style="position:absolute; top:20px; right:50px; rotate:-150deg; scale:1.5;" />
-    </header>
-
-    <!-- ===== 左侧边栏 ===== -->
-    <aside class="left-sidebar">
-      <div class="window">
-        <div class="window-header">
-          <span>PROFILE.INFO</span>
-          <div class="window-controls"><span>_</span><span>□</span><span>X</span></div>
-        </div>
-        <div class="window-body">
-          <div class="avatar-box" style="position:relative; display:inline-block;">
-            <img src="images/miku.jpg" alt="avatar" loading="eager" width="255" height="245"
-                 style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);" />
-            <img src="images/avatar_frame.gif" alt="avatar_frame" loading="eager" width="150" height="150"
-                 style="position:absolute; left:50%; top:50%; transform:translate(calc(-50% + 20px), calc(-50% - 30px)); pointer-events:none;" />
-          </div>
-          <ul class="profile-info">
-            <li><b>User:</b> Island_Babe_00</li>
-            <li><b>Status:</b> <span style="color:#009900; font-weight:bold;">● On Beach</span></li>
-            <li><b>Hobbies:</b> Surfing / Music / Y2K Art</li>
-            <li><b>Signature:</b> Cool vibes &amp; stay salty! 🏄‍♀️</li>
-          </ul>
-          <div class="badge-list">
-            <span class="y2k-badge">ISLAND_LIFE</span>
-            <span class="y2k-badge">SURFS_UP</span>
-            <span class="y2k-badge">MP3_INSIDE</span>
-            <span class="y2k-badge">SUN_KISSED</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="window">
-        <div class="window-header">
-          <span>NAVIGATE.SYS</span>
-          <div class="window-controls"><span>X</span></div>
-        </div>
-        <div class="window-body">
-          <a href="index.html" class="y2k-btn" style="width:100%; text-align:center; margin-bottom:8px; display:block;">🏠 岛屿首页</a>
-          <a href="diary.html" class="y2k-btn" style="width:100%; text-align:center; margin-bottom:8px; display:block;">💿 日志飘流瓶</a>
-          <a href="gallery.html" class="y2k-btn" style="width:100%; text-align:center; margin-bottom:8px; display:block;">🖼️ 冲浪画廊</a>
-          <a href="guestbook.html" class="y2k-btn" style="width:100%; text-align:center; display:block;">💬 沙滩留言板</a>
-        </div>
-        <img src="images/cat.gif" width="90" height="90" alt="cat"
-             style="position:absolute; bottom:0; right:0;" />
-      </div>
-
-      <div class="window">
-        <div class="window-header">
-          <span>FRIENDS.WEB</span>
-          <div class="window-controls"><span>X</span></div>
-        </div>
-        <div class="window-body">
-          <p>
-            <a href="https://knoxstation.neocities.org/" target="_blank" rel="noopener noreferrer">☆Knoxie's World! (๑❛◡❛๑)☆</a>
-          </p>
-          <p>
-            <a href="https://palemomos.neocities.org/" target="_blank" rel="noopener noreferrer">Palemomos Website!</a>
-          </p>
-        </div>
-      </div>
-    </aside>
-
-    <!-- ===== 中间主内容区 ===== -->
-    <main class="main-content">
-      <!-- WelcomeBox -->
-      <div class="window">
-        <div class="window-header">
-          <span>WELCOME.EXE</span>
-          <div class="window-controls"><span>_</span><span>X</span></div>
-        </div>
-        <div class="window-body">
-          <div class="div-image">
-            <img class="left-image" src="images/seaside.gif" alt="seaside" width="498" height="277" loading="eager" />
-            <img class="tright-image" src="images/landscape.gif" alt="landscape" width="430" height="240" />
-            <img class="bright-image" src="images/ocean.gif" alt="ocean" width="400" height="200" />
-            <img class="right-image" src="images/watermelon.png" alt="watermelon" width="150" height="150" />
-          </div>
-          <p>欢迎来到我的个人主页！</p>
-          <p>这是一个属于我自己的小小互联网角落。</p>
-          <p>在这里可以找到我的日记、照片、游戏、音乐以及一些奇奇怪怪的东西。</p>
-        </div>
-      </div>
-
-      <!-- BlogPosts -->
-      <div class="window">
-        <div class="window-header">
-          <span>BLOG_POSTS.DAT</span>
-          <div class="window-controls"><span>_</span><span>X</span></div>
-        </div>
-        <div class="window-body">
-          <article class="post-card">
-            <div class="post-title">
-              <span>✦  天气不错</span>
-              <span class="post-date">2026-08-15</span>
-            </div>
-            <div class="post-content">我去</div>
-            <a href="diary/3.html" class="y2k-btn">READ MORE &gt;&gt;</a>
-          </article>
-
-          <article class="post-card">
-            <div class="post-title">
-              <span>✦  欢迎来到我的秘密基地！</span>
-              <span class="post-date">2026-08-13</span>
-            </div>
-            <div class="post-content">这是第一篇 Y2K 风格博客日记。</div>
-            <a href="diary/1.html" class="y2k-btn">READ MORE &gt;&gt;</a>
-          </article>
-        </div>
-      </div>
-    </main>
-
-    <!-- 右下角史迪奇装饰 -->
-    <img src="images/stitch.gif" width="100" height="100" alt="stitch"
-         style="position:absolute; bottom:250px; left:70%; scale:2;" />
-
-    <!-- ===== 右侧边栏 ===== -->
-    <aside class="right-sidebar">
-      <img class="status-box" src="images/girl.gif" alt="girl" width="240" height="120" />
-
-      <!-- 音乐播放器 -->
-      <div class="window">
-        <div class="window-header">
-          <span>MEDIA_PLAYER.AMP</span>
-          <div class="window-controls"><span>X</span></div>
-        </div>
-        <div class="window-body">
-          <div class="music-player">
-            <audio id="bg-audio" preload="auto" src="audio/track01.mp3"></audio>
-            <div id="track-info" class="track-info">♫ track01</div>
-
-            <div id="autoplay-hint" class="autoplay-hint" style="display:none;">
-              <button type="button" class="y2k-btn">🎵 点击开始播放</button>
-            </div>
-
-            <div class="player-controls">
-              <button type="button" id="prev-btn" class="y2k-btn" title="上一首">⏮</button>
-              <button type="button" id="play-pause-btn" class="y2k-btn" title="播放"><span class="btn-icon">▶</span></button>
-              <button type="button" id="next-btn" class="y2k-btn" title="下一首">⏭</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 留言预览 -->
-      <div class="window">
-        <div class="window-header">
-          <span>BLOG_POSTS.DAT</span>
-          <div class="window-controls"><span>_</span><span>X</span></div>
-        </div>
-        <div class="window-body">
-          <p>✨ 来沙滩留言板留下你的脚印吧！ 🌊</p>
-          <p><a href="guestbook.html">→ 去留言板</a></p>
-        </div>
-      </div>
-
-      <!-- 访客计数（静态快照） -->
-      <div class="window">
-        <div class="window-header">
-          <span>VISITOR.CAL</span>
-          <div class="window-controls"><span>X</span></div>
-        </div>
-        <div class="window-body">
-          <strong>Total Visit: 00000204</strong>
-          <img src="images/ufo.gif" width="30" height="30" alt="ufo" />
-        </div>
-      </div>
-    </aside>
-
-    <!-- ===== Footer ===== -->
-    <footer>
-      <div>
-        <img src="images/icon/anlucas3.gif" alt="anlucas3" width="88" height="32" style="margin-right:10px;" />
-        <img src="images/icon/mobile.gif" alt="mobile" width="88" height="32" style="margin-right:10px;" />
-        <img src="images/icon/btn-silvercruiser.gif" alt="btn-silvercruiser" width="88" height="32" style="margin-right:10px;" />
-        <img src="images/icon/aceattorneyvillains.png" alt="aceattorneyvillains" width="88" height="32" style="margin-right:10px;" />
-        <img src="images/icon/caramelldansen.gif" alt="caramelldansen" width="88" height="32" />
-      </div>
-      <p>© 2000-2026 ISLAND_BABE_SPACE. ALL RIGHTS RESERVED.</p>
-      <p style="margin-top:5px; font-size:11px;">DESIGNED WITH SUNSHINE, SEA &amp; Y2K SPIRIT.</p>
-    </footer>
+---
+layout: default
+title: "C3BER_SPICE.LOG"
+---
+<!-- WelcomeBox -->
+<div class="window">
+  <div class="window-header">
+    <span>WELCOME.EXE</span>
+    <div class="window-controls"><span>_</span><span>X</span></div>
   </div>
+  <div class="window-body">
+    <div class="div-image">
+      <img class="left-image" src="{{ site.baseurl }}/assets/images/seaside.gif" alt="seaside" width="498" height="277" loading="eager" />
+      <img class="tright-image" src="{{ site.baseurl }}/assets/images/landscape.gif" alt="landscape" width="430" height="240" />
+      <img class="bright-image" src="{{ site.baseurl }}/assets/images/ocean.gif" alt="ocean" width="400" height="200" />
+      <img class="right-image" src="{{ site.baseurl }}/assets/images/watermelon.png" alt="watermelon" width="150" height="150" />
+    </div>
+    <p>欢迎来到我的个人主页！</p>
+    <p>这是一个属于我自己的小小互联网角落。</p>
+    <p>在这里可以找到我的日记、照片、游戏、音乐以及一些奇奇怪怪的东西。</p>
+  </div>
+</div>
 
-  <script src="js/music.js"></script>
-  <script src="js/bubbles.js"></script>
-</body>
-</html>
+<!-- BlogPosts -->
+<div class="window">
+  <div class="window-header">
+    <span>BLOG_POSTS.DAT</span>
+    <div class="window-controls"><span>_</span><span>X</span></div>
+  </div>
+  <div class="window-body">
+    {% for post in site.posts limit:5 %}
+    <article class="post-card">
+      <div class="post-title">
+        <span>✦  {{ post.title }}</span>
+        <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+      </div>
+      <div class="post-content">
+        {% if post.excerpt %}{{ post.excerpt | strip_html | truncate: 80 }}{% else %}{{ post.content | strip_html | truncate: 80 }}{% endif %}
+      </div>
+      <a href="{{ site.baseurl }}{{ post.url }}" class="y2k-btn">READ MORE &gt;&gt;</a>
+    </article>
+    {% else %}
+    <p>🌴 还没有日记，敬请期待~</p>
+    {% endfor %}
+  </div>
+</div>

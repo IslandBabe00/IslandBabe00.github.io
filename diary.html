@@ -1,53 +1,41 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>日志飘流瓶 ✦ ISLAND_Y2K_SPACE</title>
-  <link rel="icon" href="favicon.ico" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdn.cursors-4u.net/cursors/animated/cute-ears-doll-girl-9aaba74d-32.css"
-  />
-</head>
-<body>
-  <div class="diary-page">
-    <div class="marquee-container">
-      <div class="marquee-text">
-        🧉 日志飘流瓶 ✦ 这里有我全部的日记 ✦ READ ME &amp; STAY SALTY 🧉
-      </div>
+---
+layout: default
+title: "日志飘流瓶"
+---
+<div class="diary-page">
+  <div class="marquee-container">
+    <div class="marquee-text">
+      🧉 日志飘流瓶 ✦ 这里有我全部的日记 ✦ READ ME &amp; STAY SALTY 🧉
     </div>
+  </div>
 
-    <div class="window">
-      <div class="window-header">
-        <span>DIARY_BOTTLE.DAT</span>
-        <div class="window-controls"><span>_</span><span>X</span></div>
-      </div>
-      <div class="window-body">
-        <ul class="diary-list">
-          <li class="diary-item">
-            <div class="diary-item-title">
-              <a href="diary/3.html" class="diary-item-link">✦ 天气不错</a>
-              <span class="post-date">2026-08-15</span>
-            </div>
-            <p class="diary-item-excerpt">我去</p>
-          </li>
+  <div class="window">
+    <div class="window-header">
+      <span>DIARY_BOTTLE.DAT</span>
+      <div class="window-controls"><span>_</span><span>X</span></div>
+    </div>
+    <div class="window-body">
+      <ul class="diary-list">
+        {% for post in site.posts %}
+        <li class="diary-item">
+          <div class="diary-item-title">
+            <a href="{{ site.baseurl }}{{ post.url }}" class="diary-item-link">✦ {{ post.title }}</a>
+            <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+          </div>
+          <p class="diary-item-excerpt">
+            {% if post.excerpt %}{{ post.excerpt | strip_html | truncate: 60 }}{% else %}{{ post.content | strip_html | truncate: 60 }}{% endif %}
+          </p>
+        </li>
+        {% else %}
+        <li class="diary-item">
+          <p>🌴 还没有日记，敬请期待~</p>
+        </li>
+        {% endfor %}
+      </ul>
 
-          <li class="diary-item">
-            <div class="diary-item-title">
-              <a href="diary/1.html" class="diary-item-link">✦ 欢迎来到我的秘密基地！</a>
-              <span class="post-date">2026-08-13</span>
-            </div>
-            <p class="diary-item-excerpt">这是第一篇 Y2K 风格博客日记。</p>
-          </li>
-        </ul>
-
-        <div class="diary-actions" style="margin-top:16px;">
-          <a href="index.html" class="y2k-btn">← 返回首页</a>
-        </div>
+      <div class="diary-actions" style="margin-top:16px;">
+        <a href="{{ site.baseurl }}/index.html" class="y2k-btn">← 返回首页</a>
       </div>
     </div>
   </div>
-</body>
-</html>
+</div>

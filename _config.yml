@@ -1,0 +1,46 @@
+# Jekyll 站点配置 —— ISLAND_Y2K_SPACE
+# 详见: https://jekyllrb.com/docs/configuration/
+
+# 站点基本信息
+title: "ISLAND_Y2K_SPACE"
+description: "C3BER_SPICE.LOG ✦ 个人博客 — 阳光沙滩数字岛屿"
+author: Island_Babe_00
+baseurl: ""          # 部署到用户页 (username.github.io) 留空
+                     # 若部署到项目页 (username.github.io/xxx) 改为 "/xxx"
+url: "https://islandbabe00.github.io"
+
+# 构建输出目录
+destination: _site
+
+# 用 kramdown 渲染 Markdown
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+# 时区
+timezone: Asia/Shanghai
+
+# 保持默认构建行为：直接把 assets/ 原样复制到 _site/assets
+keep_files:
+  - assets
+
+# 不处理这些文件
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .gitignore
+
+# 博客相关默认值：所有 posts 的类型与布局
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+# Liquid 语法高亮
+highlighter: rouge
