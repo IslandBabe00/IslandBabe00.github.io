@@ -9,33 +9,68 @@ title: "日志飘流瓶"
     </div>
   </div>
 
-  <div class="window">
-    <div class="window-header">
-      <span>DIARY_BOTTLE.DAT</span>
-      <div class="window-controls"><span>_</span><span>X</span></div>
-    </div>
-    <div class="window-body">
-      <ul class="diary-list">
-        {% for post in site.posts %}
-        <li class="diary-item">
-          <div class="diary-item-title">
-            <a href="{{ site.baseurl }}{{ post.url }}" class="diary-item-link">✦ {{ post.title }}</a>
-            <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
-          </div>
-          <p class="diary-item-excerpt">
-            {% if post.excerpt %}{{ post.excerpt | strip_html | truncate: 60 }}{% else %}{{ post.content | strip_html | truncate: 60 }}{% endif %}
-          </p>
-        </li>
-        {% else %}
-        <li class="diary-item">
-          <p>🌴 还没有日记，敬请期待~</p>
-        </li>
-        {% endfor %}
-      </ul>
-
-      <div class="diary-actions" style="margin-top:16px;">
-        <a href="{{ site.baseurl }}/index.html" class="y2k-btn">← 返回首页</a>
+  <!-- 左侧索引 + 右侧详情预览 -->
+  <div class="diary-split">
+    <!-- 左侧：日记索引列表 -->
+    <div class="window diary-index-window">
+      <div class="window-header">
+        <span>DIARY_BOTTLE.DAT</span>
+        <div class="window-controls"><span>_</span><span>X</span></div>
       </div>
+      <div class="window-body">
+        <ul class="diary-index-list">
+          {% for post in site.posts %}
+          <li class="diary-index-item">
+            <a href="{{ site.baseurl }}{{ post.url }}" class="diary-index-link">
+              <span class="diary-index-date">{{ post.date | date: "%m-%d" }}</span>
+              <span class="diary-index-title">✦ {{ post.title }}</span>
+            </a>
+          </li>
+          {% else %}
+          <li class="diary-index-item">
+            <p>🌴 还没有日记，敬请期待~</p>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <!-- 右侧：最新日记预览 -->
+    <div class="diary-preview">
+      {% assign latest = site.posts | first %}
+      {% if latest %}
+      <div class="window">
+        <div class="window-header">
+          <span>DIARY_PREVIEW.DAT</span>
+          <div class="window-controls"><span>_</span><span>X</span></div>
+        </div>
+        <div class="window-body">
+          <article class="diary-detail-card">
+            <div class="diary-detail-title">✦ {{ latest.title }}</div>
+            <div class="diary-detail-meta">
+              <span class="post-date">{{ latest.date | date: "%Y-%m-%d" }}</span>
+            </div>
+            <div class="diary-detail-content">
+              {% if latest.excerpt %}{{ latest.excerpt }}{% else %}{{ latest.content | strip_html | truncate: 200 }}{% endif %}
+            </div>
+          </article>
+          <div class="diary-detail-actions">
+            <a href="{{ site.baseurl }}{{ latest.url }}" class="y2k-btn">READ FULL &gt;&gt;</a>
+            <a href="{{ site.baseurl }}/index.html" class="y2k-btn">← 返回首页</a>
+          </div>
+        </div>
+      </div>
+      {% else %}
+      <div class="window">
+        <div class="window-header">
+          <span>DIARY_PREVIEW.DAT</span>
+          <div class="window-controls"><span>_</span><span>X</span></div>
+        </div>
+        <div class="window-body">
+          <p>🌴 还没有日记，敬请期待~</p>
+        </div>
+      </div>
+      {% endif %}
     </div>
   </div>
 </div>

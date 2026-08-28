@@ -914,7 +914,7 @@ footer {
 
 /* 日志流瓶：日记列表页 */
 .diary-page {
-  max-width: 760px;
+  max-width: 980px;
   margin: 0 auto;
   padding: 10px 0;
 }
@@ -960,6 +960,79 @@ footer {
   color: #333;
   margin: 0;
   word-break: break-word;
+}
+
+/* ============ 日志飘流瓶：左侧索引 + 右侧预览 ============ */
+.diary-split {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* 左侧索引窗格 */
+.diary-index-window {
+  position: sticky;
+  top: 20px;
+}
+
+.diary-index-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.diary-index-item {
+  border-bottom: 1px dashed var(--sky-blue);
+}
+
+.diary-index-item:last-child {
+  border-bottom: none;
+}
+
+.diary-index-link {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 9px 6px;
+  color: var(--ocean-navy);
+  text-decoration: none;
+  font-size: 13px;
+  transition: background 0.1s ease, color 0.1s ease;
+}
+
+.diary-index-link:hover {
+  background: rgba(0, 210, 255, 0.12);
+  color: var(--sunset-coral);
+}
+
+.diary-index-date {
+  flex-shrink: 0;
+  font-size: 11px;
+  color: #000;
+  background: var(--lagoon-cyan);
+  padding: 1px 6px;
+  border: 1px solid #000;
+  box-shadow: 1px 1px 0px #000;
+}
+
+.diary-index-title {
+  font-weight: bold;
+}
+
+/* 右侧预览区 */
+.diary-preview {
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .diary-split {
+    grid-template-columns: 1fr;
+  }
+
+  .diary-index-window {
+    position: static;
+  }
 }
 
 /* 后台日记管理：只显示标题链接，点击进入编辑页 */
