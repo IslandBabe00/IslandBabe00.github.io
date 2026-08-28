@@ -6,9 +6,13 @@
   {% include head.html %}
 </head>
 <body>
-  {% include header.html %}
+  <div id="bubbles" class="bubbles" aria-hidden="true"></div>
+
+  {% include decoration.html %}
 
   <div class="container">
+    {% include header.html %}
+
     {% include sidebar-left.html %}
 
     <!-- ===== 中间主内容区 ===== -->
@@ -16,10 +20,13 @@
       {{ content }}
     </main>
 
-    {% include sidebar-right.html %}
-  </div>
+    <img src="{{ site.baseurl }}/assets/images/stitch.gif" width="100" height="100" alt="stitch"
+         style="position:absolute; bottom:250px; left:70%; scale:2;" />
 
-  {% include footer.html %}
+    {% include sidebar-right.html %}
+
+    {% include footer.html %}
+  </div>
 
   <script src="{{ site.baseurl }}/assets/js/music.js"></script>
   <script src="{{ site.baseurl }}/assets/js/bubbles.js"></script>
