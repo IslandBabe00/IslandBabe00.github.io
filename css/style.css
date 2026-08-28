@@ -1,0 +1,1153 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ================= 1. 全局与沙滩岛屿天空色系 ================= */
+:root {
+  /* 热带亮色调 Y2K 配色 */
+  --sky-blue: #00D2FF;
+  /* 晴空蓝 */
+  --lagoon-cyan: #3AFAFA;
+  /* 浅海青 */
+  --sun-yellow: #FFE600;
+  /* 暖阳黄 */
+  --sunset-coral: #FF5E97;
+  /* 晚霞珊瑚粉 */
+  --lime-mint: #7CFF00;
+  /* 薄荷热带绿 */
+  --ocean-navy: #003366;
+  /* 深海蓝 (文字与深色对比) */
+
+  --bg-sky: #E0F7FA;
+  /* 天空浅蓝背景底色 */
+  --card-bg: rgba(255, 255, 255, 0.92);
+  --border-pink: #FF5E97;
+  --text-dark: #002244;
+}
+
+/* =========================================
+   Global pixel font (Ark Pixel 10px)
+   ========================================= */
+@font-face {
+  font-family: 'ArkPixel';
+  src: url('../font/ark-pixel-10px-monospaced-zh_cn.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'ArkPixel', 'MS Sans Serif', 'Tahoma', 'PingFang SC', sans-serif;
+}
+
+body {
+  background-color: var(--bg-sky);
+  /* Y2K 千禧网格背景（暖阳光与浅海蓝网格线）+ 树木叠加层 */
+  background-image:
+    linear-gradient(rgba(0, 210, 255, 0.25) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 94, 151, 0.2) 1px, transparent 1px);
+  background-size:
+    24px 24px,
+    24px 24px;
+  background-position:
+    top left,
+    0 0,
+    0 0;
+  background-repeat:
+    repeat,
+    repeat,
+    repeat;
+  color: var(--text-dark);
+  padding: 20px;
+  position: relative;
+  /* 为伪元素定位做准备 */
+}
+
+/* 顶部阳光跑马灯 */
+.marquee-container {
+  background: linear-gradient(90deg, var(--sun-yellow), var(--sunset-coral));
+  color: #000;
+  font-weight: bold;
+  padding: 8px 0;
+  border: 2px solid var(--sunset-coral);
+  margin-bottom: 20px;
+  box-shadow: 4px 4px 0px #000;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-text {
+  display: inline-block;
+  animation: marquee 15s linear infinite;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* 全站网格布局 */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 280px 1fr 240px;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 布局辅助（三栏各自定位） */
+.left-sidebar {
+  min-width: 0;
+}
+
+.main-content {
+  min-width: 0;
+}
+
+.right-sidebar {
+  min-width: 0;
+}
+
+/* ================= 2. Y2K 拟物系统窗口（沙滩海岛风） ================= */
+.window {
+  background: var(--card-bg);
+  border: 2px solid var(--sunset-coral);
+  box-shadow: 6px 6px 0px #000, 0 0 12px rgba(0, 210, 255, 0.4);
+  border-radius: 6px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(4px);
+  overflow: hidden;
+}
+
+.window-header {
+  background: linear-gradient(90deg, var(--lagoon-cyan), var(--lime-mint));
+  padding: 6px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--sunset-coral);
+  font-weight: bold;
+  font-size: 13px;
+  color: var(--ocean-navy);
+  text-shadow: 1px 1px 0px #FFF;
+}
+
+.window-controls span {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: var(--sun-yellow);
+  border: 1px solid #000;
+  text-align: center;
+  line-height: 12px;
+  font-size: 10px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 3px;
+  box-shadow: 1px 1px 0px #000;
+}
+
+.window-body {
+  padding: 15px;
+}
+
+/* ================= 3. 页头 Header ================= */
+.header-title {
+  position: relative;
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 24px 0;
+  background: linear-gradient(180deg, rgba(255, 230, 0, 0.4), rgba(0, 210, 255, 0.15));
+  border: 2px dashed var(--sunset-coral);
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 4px 4px 0px #000;
+}
+
+.header-title h1 {
+  font-size: 3rem;
+  color: var(--sky-blue);
+  text-shadow: 3px 3px 0px var(--sunset-coral), 0 0 10px var(--sun-yellow);
+  letter-spacing: 2px;
+  font-style: italic;
+}
+
+.header-title p {
+  color: var(--ocean-navy);
+  font-size: 1.1rem;
+  margin-top: 6px;
+  font-weight: bold;
+}
+
+.sparkle {
+  color: var(--sun-yellow);
+  text-shadow: 1px 1px 0px #000;
+  animation: blink 1s infinite alternate;
+}
+
+@keyframes blink {
+  from {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* ================= 4. 左侧边栏：个人档案 ================= */
+.avatar-box {
+  width: 100%;
+  height: 240px;
+  background: linear-gradient(45deg, var(--sky-blue), var(--lagoon-cyan), var(--sun-yellow));
+  border: 2px solid var(--sunset-coral);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 4.5rem;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.profile-info {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--ocean-navy);
+}
+
+.profile-info li {
+  list-style: none;
+  margin-bottom: 6px;
+  border-bottom: 1px dashed var(--sky-blue);
+  padding-bottom: 4px;
+}
+
+.badge-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+/* 88x31 复古像素风格微型 Badge */
+.y2k-badge {
+  background: var(--sun-yellow);
+  border: 1px solid #000;
+  color: #000;
+  padding: 3px 6px;
+  font-size: 10px;
+  font-weight: bold;
+  box-shadow: 2px 2px 0px var(--sunset-coral);
+}
+
+/* ================= 5. 中间主内容区：博客文章 ================= */
+.post-card {
+  background: #FFFFFF;
+  border: 2px solid var(--sky-blue);
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 4px 4px 0px var(--sunset-coral);
+}
+
+.post-title {
+  color: var(--ocean-navy);
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.post-date {
+  font-size: 11px;
+  color: #000;
+  background: var(--lagoon-cyan);
+  padding: 2px 8px;
+  border: 1px solid #000;
+  box-shadow: 2px 2px 0px #000;
+}
+
+.post-content {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #333333;
+  margin-bottom: 12px;
+}
+
+/* Y2K 复古亮色交互按钮 */
+.y2k-btn {
+  display: inline-block;
+  background: linear-gradient(180deg, var(--lime-mint), var(--lagoon-cyan));
+  color: #000;
+  font-weight: bold;
+  padding: 7px 16px;
+  text-decoration: none;
+  border: 2px solid #000;
+  box-shadow: 3px 3px 0px #000;
+  font-size: 12px;
+  transition: all 0.1s ease;
+  cursor: pointer;
+}
+
+.y2k-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px var(--sunset-coral);
+  background: var(--sun-yellow);
+}
+
+.y2k-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #000;
+}
+
+/* ================= 6. 右侧小组件：音乐播放器 & 状态栏 ================= */
+.status-box {
+  background: linear-gradient(90deg, var(--sunset-coral), var(--sun-yellow));
+  color: #000;
+  border: 2px solid #000;
+  margin-bottom: 15px;
+  box-shadow: 4px 4px 0px #000;
+}
+
+.music-player {
+  background: #001F3F;
+  border: 2px solid var(--sky-blue);
+  padding: 12px;
+  text-align: center;
+  color: var(--lagoon-cyan);
+}
+
+.track-info {
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 5px var(--lagoon-cyan);
+}
+
+.player-controls {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.autoplay-hint {
+  margin-bottom: 10px;
+}
+
+/* 88x31 经典像素友链组件 */
+.banner-88x31 {
+  width: 100%;
+  padding: 6px;
+  margin-bottom: 8px;
+  font-size: 11px;
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid #000;
+  box-shadow: 3px 3px 0px #000;
+  cursor: pointer;
+}
+
+/* ================= 7. 页脚 Footer ================= */
+footer {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+  border-top: 2px dashed var(--sunset-coral);
+  font-size: 12px;
+  color: var(--ocean-navy);
+  font-weight: bold;
+}
+
+/* ================= 8. 后台管理（Y2K 海岛风） ================= */
+.admin-page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+/* 顶部标题条：珊瑚粉 → 暖阳黄，复刻主页跑马灯质感 */
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, var(--sun-yellow), var(--sunset-coral));
+  border: 2px solid var(--sunset-coral);
+  box-shadow: 4px 4px 0px #000;
+  padding: 12px 18px;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.admin-title {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 0px #fff;
+}
+
+.admin-header-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.admin-header-actions a {
+  color: var(--ocean-navy);
+  font-weight: bold;
+  font-size: 13px;
+  text-decoration: none;
+  border-bottom: 2px dashed transparent;
+}
+
+.admin-header-actions a:hover {
+  border-bottom-color: var(--ocean-navy);
+}
+
+/* 错误提示条 */
+.admin-error {
+  background: #ffe1e6;
+  border: 2px solid var(--sunset-coral);
+  color: #a1003a;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  box-shadow: 3px 3px 0px #000;
+}
+
+/* 标签页：复古像素标签 */
+.admin-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.admin-tab {
+  background: var(--sun-yellow);
+  border: 2px solid #000;
+  color: #000;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 8px 18px;
+  text-decoration: none;
+  box-shadow: 3px 3px 0px #000;
+  transition: all 0.1s ease;
+}
+
+.admin-tab:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px var(--sunset-coral);
+}
+
+.admin-tab-active {
+  background: linear-gradient(180deg, var(--lime-mint), var(--lagoon-cyan));
+  color: var(--ocean-navy);
+  box-shadow: 3px 3px 0px var(--sky-blue);
+}
+
+.admin-tab-active:hover {
+  box-shadow: 5px 5px 0px var(--sunset-coral);
+}
+
+/* 内容卡片：拟物系统窗口质感 */
+.y2k-box {
+  background: var(--card-bg);
+  border: 2px solid var(--sunset-coral);
+  box-shadow: 6px 6px 0px #000, 0 0 12px rgba(0, 210, 255, 0.4);
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.y2k-box h2 {
+  background: linear-gradient(90deg, var(--lagoon-cyan), var(--lime-mint));
+  border-bottom: 2px solid var(--sunset-coral);
+  color: var(--ocean-navy);
+  text-shadow: 1px 1px 0px #fff;
+  font-size: 14px;
+  padding: 8px 14px;
+}
+
+.box-content {
+  padding: 16px;
+}
+
+/* 表单：纵向堆叠 */
+.admin-stacked-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 2px dashed var(--sky-blue);
+}
+
+/* 表单：横向一行 */
+.admin-inline-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 2px dashed var(--sky-blue);
+}
+
+.admin-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-field label {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--ocean-navy);
+}
+
+/* 输入框：像素风 */
+.admin-page input[type="text"],
+.admin-page input[type="password"],
+.admin-page textarea {
+  border: 2px solid var(--sky-blue);
+  background: #fff;
+  color: var(--text-dark);
+  font-size: 13px;
+  padding: 7px 10px;
+  font-family: inherit;
+  box-shadow: 2px 2px 0px rgba(0, 210, 255, 0.4);
+  transition: box-shadow 0.1s ease, border-color 0.1s ease;
+}
+
+.admin-page input[type="text"]:focus,
+.admin-page input[type="password"]:focus,
+.admin-page textarea:focus {
+  outline: none;
+  border-color: var(--sunset-coral);
+  box-shadow: 2px 2px 0px var(--sunset-coral), 0 0 8px rgba(255, 94, 151, 0.5);
+}
+
+.admin-page textarea {
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.admin-page input[type="text"] {
+  flex: 1;
+  min-width: 140px;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* 按钮：对齐主页 .y2k-btn */
+.admin-btn {
+  display: inline-block;
+  background: linear-gradient(180deg, var(--lime-mint), var(--lagoon-cyan));
+  color: #000;
+  font-weight: bold;
+  padding: 8px 18px;
+  border: 2px solid #000;
+  box-shadow: 3px 3px 0px #000;
+  font-size: 12px;
+  transition: all 0.1s ease;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.admin-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px var(--sunset-coral);
+  background: var(--sun-yellow);
+}
+
+.admin-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #000;
+}
+
+.admin-btn-small {
+  padding: 5px 12px;
+  font-size: 11px;
+}
+
+.admin-btn-danger {
+  background: linear-gradient(180deg, var(--sunset-coral), #ff2e7e);
+  color: #fff;
+}
+
+.admin-btn-danger:hover {
+  background: #ff2e7e;
+  box-shadow: 5px 5px 0px #7a0033;
+}
+
+/* 列表项 */
+.admin-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-list-item {
+  border: 2px solid var(--sky-blue);
+  background: #fff;
+  box-shadow: 3px 3px 0px rgba(255, 94, 151, 0.5);
+  margin-bottom: 12px;
+  padding: 12px;
+}
+
+.admin-item-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.admin-item-form {
+  flex: 1;
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.admin-item-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* 后台留言管理：邮箱仅站长可见 */
+.admin-guestbook-email {
+  font-size: 12px;
+  color: #00695c;
+  background: #e0f2f1;
+  border: 1px solid var(--lagoon-cyan);
+  padding: 2px 8px;
+  margin: 4px 0;
+  display: inline-block;
+  word-break: break-all;
+}
+
+/* 小字提示 */
+.small-text {
+  font-size: 12px;
+  color: var(--ocean-navy);
+  opacity: 0.85;
+}
+
+/* 分页：像素方块 */
+.admin-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-page-link {
+  display: inline-block;
+  min-width: 30px;
+  text-align: center;
+  padding: 5px 10px;
+  background: var(--sun-yellow);
+  border: 2px solid #000;
+  color: #000;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 2px 2px 0px #000;
+  transition: all 0.1s ease;
+}
+
+.admin-page-link:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px var(--sunset-coral);
+}
+
+.admin-page-current {
+  background: linear-gradient(180deg, var(--lime-mint), var(--lagoon-cyan));
+  color: var(--ocean-navy);
+}
+
+.admin-page-disabled {
+  background: #ddd;
+  color: #888;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* 登录页 */
+.admin-login-box {
+  display: flex;
+  justify-content: center;
+  padding-top: 60px;
+}
+
+.admin-login-box .y2k-box {
+  width: 380px;
+  max-width: 100%;
+}
+
+.admin-login-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.admin-login-box .admin-field {
+  gap: 6px;
+}
+
+.admin-login-box input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+/* ================= 9. 留言详情页（Y2K 海岛风） ================= */
+.guestbook-page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+/* 留言输入表单 */
+.guestbook-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.guestbook-form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.guestbook-form-row label {
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--ocean-navy);
+}
+
+.guestbook-form-row input[type="text"],
+.guestbook-form-row textarea {
+  border: 2px solid var(--sky-blue);
+  background: #fff;
+  color: var(--text-dark);
+  font-size: 13px;
+  padding: 9px 12px;
+  font-family: inherit;
+  box-shadow: 2px 2px 0px rgba(0, 210, 255, 0.4);
+  transition: box-shadow 0.1s ease, border-color 0.1s ease;
+}
+
+.guestbook-form-row input[type="text"]:focus,
+.guestbook-form-row textarea:focus {
+  outline: none;
+  border-color: var(--sunset-coral);
+  box-shadow: 2px 2px 0px var(--sunset-coral), 0 0 8px rgba(255, 94, 151, 0.5);
+}
+
+.guestbook-form-row textarea {
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.guestbook-form-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* 错误提示 */
+.guestbook-error {
+  background: #ffe1e6;
+  border: 2px solid var(--sunset-coral);
+  color: #a1003a;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 9px 12px;
+  box-shadow: 3px 3px 0px #000;
+}
+
+/* 留言列表 */
+.guestbook-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.guestbook-item {
+  border: 2px solid var(--sky-blue);
+  background: #fff;
+  box-shadow: 3px 3px 0px rgba(255, 94, 151, 0.5);
+  margin-bottom: 14px;
+  padding: 12px 14px;
+}
+
+/* 主页边栏里的预览也要用同一风格 */
+.guestbook-item b {
+  color: var(--ocean-navy);
+}
+
+.guestbook-item-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.guestbook-rank {
+  display: inline-block;
+  min-width: 28px;
+  text-align: center;
+  background: var(--sun-yellow);
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0px #000;
+  font-size: 11px;
+  font-weight: bold;
+  color: #000;
+  padding: 2px 4px;
+}
+
+.guestbook-name {
+  font-size: 14px;
+}
+
+.guestbook-time {
+  margin-left: auto;
+}
+
+.guestbook-message-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #333;
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ================= 8. 日记详情页 ================= */
+.diary-detail-page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+.diary-detail-card {
+  background: #FFFFFF;
+  border: 2px solid var(--sky-blue);
+  padding: 20px;
+  box-shadow: 4px 4px 0px var(--sunset-coral);
+}
+
+.diary-detail-title {
+  color: var(--ocean-navy);
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.diary-detail-meta {
+  margin-bottom: 14px;
+}
+
+.diary-detail-content {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #333333;
+  word-break: break-word;
+}
+
+.diary-detail-actions {
+  margin-top: 16px;
+}
+
+/* 日志流瓶：日记列表页 */
+.diary-page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+.diary-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.diary-item {
+  border: 2px solid var(--sky-blue);
+  background: #fff;
+  box-shadow: 3px 3px 0px rgba(255, 94, 151, 0.5);
+  margin-bottom: 14px;
+  padding: 12px 14px;
+}
+
+.diary-item-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.diary-item-link {
+  color: var(--ocean-navy);
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 2px dashed var(--sky-blue);
+}
+
+.diary-item-link:hover {
+  color: var(--sunset-coral);
+  border-bottom-style: solid;
+}
+
+.diary-item-excerpt {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #333;
+  margin: 0;
+  word-break: break-word;
+}
+
+/* 后台日记管理：只显示标题链接，点击进入编辑页 */
+.admin-diary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.admin-diary-link {
+  color: var(--ocean-navy);
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 2px dashed var(--sky-blue);
+}
+
+.admin-diary-link:hover {
+  color: var(--sunset-coral);
+  border-bottom-style: solid;
+}
+
+/* ================= 10. 画廊 ================= */
+.gallery-page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 18px;
+}
+
+/* 画板：木纹质感边框 + 白色画布，照片挂在其上 */
+.gallery-frame {
+  margin: 0;
+  padding: 10px;
+  background: linear-gradient(180deg, #f5e9d0, #e0c9a0);
+  border: 2px solid #8a5a2b;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.35);
+  text-align: center;
+}
+
+.gallery-easel {
+  background: #ffffff;
+  border: 2px solid var(--sky-blue);
+  padding: 6px;
+  box-shadow: inset 0 0 0 2px #f0f0f0, 2px 2px 0px rgba(0, 0, 0, 0.15);
+  line-height: 0;
+}
+
+.gallery-photo {
+  width: 100%;
+  height: auto;
+  max-height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-caption {
+  margin-top: 8px;
+  font-size: 11px;
+  color: #6b4a21;
+  font-weight: bold;
+}
+
+.gallery-actions {
+  margin-top: 16px;
+}
+
+/* 后台画廊管理 */
+.admin-gallery-thumb {
+  border: 2px solid var(--sky-blue);
+  object-fit: cover;
+  background: #fff;
+}
+
+.admin-gallery-filename {
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--ocean-navy);
+  word-break: break-all;
+  margin-bottom: 4px;
+}
+
+.admin-gallery-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-end;
+}
+
+.admin-gallery-actions .admin-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 3px 3px 0px #000;
+}
+
+/* 小字提示（主页 & 留言页共用） */
+.small-text {
+  font-size: 12px;
+  color: var(--ocean-navy);
+  opacity: 0.85;
+}
+
+/* ================= 11. Welcome Box 拼贴画 =================
+   原 src/components/WelcomeBox/index.module.css
+   所有图片随容器宽度缩放；相对位置用百分比固定。 */
+.div-image {
+  position: relative;
+  width: 100%;
+  height: 200;
+  margin-bottom: 1em;
+}
+
+.left-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 65%;
+  height: auto;
+  border-width: 7px;
+  border-style: solid;
+  border-image: url('../images/cloudy-border.png') 8 fill round;
+}
+
+.tright-image {
+  position: absolute;
+  right: 17%;
+  width: 35%;
+  height: auto;
+  transform: rotate(5deg);
+  border-width: 7px;
+  border-style: solid;
+  border-image: url('../images/cloudy-border.png') 8 fill round;
+}
+
+.bright-image {
+  position: absolute;
+  right: 17%;
+  bottom: 10;
+  width: 35%;
+  height: auto;
+  transform: rotate(-2deg);
+  border-width: 7px;
+  border-style: solid;
+  border-image: url('../images/cloudy-border.png') 8 fill round;
+}
+
+.right-image {
+  position: absolute;
+  right: -20;
+  top: 10;
+  height: auto;
+}
+
+/* ================= 12. 上升泡泡 =================
+   原项目引用过 .bubbles/.bubble 但从未定义，这里补全，
+   让泡泡动画真正生效。 */
+.bubbles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -80px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.6);
+  animation-name: bubble-rise;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes bubble-rise {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(var(--drift, 0px), -110vh);
+    opacity: 0;
+  }
+}
+
+/* 像素风渲染辅助 */
+.pixelated {
+  image-rendering: pixelated;
+  image-rendering: -moz-pixelated;
+}
