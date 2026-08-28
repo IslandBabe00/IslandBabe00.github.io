@@ -1197,8 +1197,9 @@ footer {
 
 .right-image {
   position: absolute;
-  right: -20;
+  right: 0;
   top: 10;
+  width: 150px;
   height: auto;
 }
 
