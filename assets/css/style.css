@@ -1099,24 +1099,27 @@ footer {
 .tright-image {
   position: absolute;
   right: 17%;
+  top: 12px;
   width: 35%;
   height: auto;
   transform: rotate(5deg);
   border-width: 7px;
   border-style: solid;
   border-image: url('../images/cloudy-border.png') 8 fill round;
+  z-index: 2;
 }
 
 .bright-image {
   position: absolute;
   right: 17%;
-  bottom: 10;
+  bottom: 8px;
   width: 35%;
   height: auto;
   transform: rotate(-2deg);
   border-width: 7px;
   border-style: solid;
   border-image: url('../images/cloudy-border.png') 8 fill round;
+  z-index: 1;
 }
 
 .right-image {
