@@ -1215,7 +1215,7 @@ footer {
   top: 4px;
   width: 23%;            /* 西瓜本体约占 1/6 容器宽，且左缘盖住 landscape 右侧约 1/6 */
   height: auto;
-  z-index: 3;            /* 在 landscape(z-index:2) 和 ocean(z-index:1) 之上 */
+  z-index: 0;            /* 在 landscape(z-index:2) 和 ocean(z-index:1) 之下 */
 }
 
 /* ================= 12. 上升泡泡 =================
