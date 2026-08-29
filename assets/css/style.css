@@ -176,6 +176,17 @@ body {
   padding: 15px;
 }
 
+/* 访客计数器：脚本注入的计数器与 ufo 图均居中 */
+.visitor-counter {
+  text-align: center;
+  line-height: 1;
+}
+
+.visitor-counter img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
 /* ================= 3. 页头 Header ================= */
 .header-title {
   position: relative;
